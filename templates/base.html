@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="eng">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patriot Stands</title>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!--local files created by SFC Chad Phillips --->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+
+    <!--font awesome ------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+  <!-- This is the sidebar: not defined by the nav option because we will use that
+        define the floating user login in the right hand of the screen -->
+
+  <div class="container">
+
+  <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top justify-content-end">
+      <a class="navbar-brand" href="#">Web Stands</a>
+     <div class="collapse navbar-collapse">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fa fa-file-excel-o"></i> Unit Report
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user"></i> Profile </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item" href="#">My account</a>
+          <a class="dropdown-item" href="#">Log out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    <h1 class='custom text'>Web Stands</h1>
+  </div>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">User Profile</a>
+    <a href="#">Add Solider</a>
+    <a href="#">Add Task</a>
+    <a href="#">Unit View</a>
+  </div>
+
+<div id="main" class="container-fixed">
+  <span id='open' style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+</div>
+
+<!-- End of sidebar -->
+<!-- header area w/cards --->
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm">
+      <div class="card card-shadow">
+       <div class="card-body">
+        <h5 class="card-title">ICC</h5>
+       </div>
+        <ul class="list-group list-group-flush bob">
+          <li class="list-group-item">Table I</li>
+          <li class="list-group-item">Table II</li>
+          <li class="list-group-item">Table III</li>
+          <li class="list-group-item">Table IV</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="card card-shadow">
+        <div class="card-body">
+        <h5 class="card-title">CRG</h5>
+       </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Table I</li>
+          <li class="list-group-item">Table II</li>
+          <li class="list-group-item">Table III</li>
+          <li class="list-group-item">Table IV</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="card card-shadow">
+        <div class="card-body">
+        <h5 class="card-title">TCS</h5>
+       </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">Table I</li>
+        <li class="list-group-item">Table II</li>
+        <li class="list-group-item">Table III</li>
+        <li class="list-group-item rounded">Table IV</li>
+      </ul>
+    </div>
+    </div>
+    <div class="col-sm">
+      <div class="card card-shadow">
+        <div class="card-body">
+        <h5 class="card-title">AMG</h5>
+       </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">Table I</li>
+        <li class="list-group-item">Table II</li>
+        <li class="list-group-item">Table III</li>
+        <li class="list-group-item">Table IV</li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</div>
+{% block content %}
+{% endblock %}
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "150px";
+  document.getElementById("main").style.marginLeft = "150px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+
+</body>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "150px";
+  document.getElementById("main").style.marginLeft = "150px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+</html>
