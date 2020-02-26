@@ -8,6 +8,10 @@ h1 {
   position: center;
 }
 
+h2 {
+  text-align: center;
+}
+
 .boss{
   text-align: center;
   padding-top: 50px;

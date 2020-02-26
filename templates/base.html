@@ -77,9 +77,42 @@
   <span id='open' style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; open</span>
 </div>
 
-<!-- End of sidebar -->
+ <!-- End of sidebar -->
+  <!--Solider entry top-->
+
+ <div class="container-fluid"><div class="row">
+    <div class="col-md-12">
+        <form class="row form">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input class="form-control" type="text" name="name" id="last_name" value="{{ last_name }}" required="">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input class="form-control" type="text" name="first_name" id="first_name" value="{{ first_name }}" required="">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="rank">Rank</label>
+                    <select class="form-control"  name="rank" id="rank" required="" >
+                                {% for PVT,CW3 in form.fields.Rank.choices %}
+                    <option value="{{ Rank }}"{% if form.fields.Rank.value == PVT %} selected{% endif %}>{{ PVT }}</option>
+                                         {% endfor %}
+                    </select>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
 <!-- header area w/cards --->
-  <div class="container-fluid">
+  <div class="container-fluid alpha">
+      <h1>Training Input</h1>
   <div class="row">
     <div class="col-sm">
       <div class="card card-shadow">
@@ -137,8 +170,9 @@
 </div>
 {% block content %}
 {% endblock %}
+  <div class="container">
 
-
+  </div>
 <script>
 function openNav() {
   document.getElementById("mySidenav").style.width = "150px";

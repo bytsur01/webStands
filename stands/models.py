@@ -69,7 +69,7 @@ position = [
 
 class Soldierdata(models.Model):
     DODID = models.IntegerField(primary_key=True)
-    Rank = models.CharField(max_length=155, choices=rank, blank=True)
+    Rank = models.CharField(max_length=155, choices=rank, blank=True, default="PVT")
     last_name = models.CharField(max_length=155)
     first_name = models.CharField(max_length=155)
     MOS = models.CharField(max_length=155, choices=mos)
@@ -79,6 +79,9 @@ class Soldierdata(models.Model):
     Battalion = models.CharField(max_length=155, choices=unit(), blank=True)
     Brigade = models.CharField(max_length=155, choices=brigade, blank=True)
     AAMDC = models.CharField(max_length=155, choices=aamdc, blank=True)
+
+    def __str__(self):
+        return self.Rank+''+self.last_name
 
 
 class TdaTableOne(models.Model):
