@@ -73,7 +73,7 @@ class Soldierdata(models.Model):
     last_name = models.CharField(max_length=155)
     first_name = models.CharField(max_length=155)
     MOS = models.CharField(max_length=155, choices=mos)
-    Postion = models.CharField(max_length=155, choices=position, blank=True)
+    Position = models.CharField(max_length=155, choices=position, blank=True)
     Platoon = models.CharField(max_length=155, choices=platoon, blank=True)
     Battery = models.CharField(max_length=155, choices=battery, blank=True)
     Battalion = models.CharField(max_length=155, choices=unit(), blank=True)
