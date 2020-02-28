@@ -4,5 +4,4 @@ from stands import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('', views.soldierinfo, name="soldierinfo"),
 ]

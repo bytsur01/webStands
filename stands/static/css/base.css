@@ -93,3 +93,7 @@ label {
 .menu-text {
   size: .2em;
 }
+
+.space {
+  text-align: center;
+}

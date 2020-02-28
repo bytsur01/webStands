@@ -84,7 +84,8 @@
     <div class="row">
     <div class="col-md-12">
     <h1>New Soldier Entry</h1>
-        <form class="row form">
+        <form method="post" class="row form">
+           {% csrf_token %}
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="last_name">Last Name</label>
@@ -107,8 +108,8 @@
                     <option value="{{ Position }}"{% if form.fields.Position.value == x %} selected{% endif %}>{{ y }}</option>
                                          {% endfor %}
                     </select>
-                    <button type="submit" class="btn btn-dark" value="submit">Submit</button>
-                    <button type="reset" class="btn btn-secondary" value="reset">Reset</button>
+                    <button type="submit" class="btn-lg btn-dark space" value="submit">Submit</button>
+                    <button type="reset" class="btn-lg btn-secondary spcae" value="reset">Reset</button>
 
                 </div>
             </div>

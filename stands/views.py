@@ -1,8 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
 from .forms import SoldierForm
-from django_tables2 import SingleTableView, RequestConfig
-from .tables import Soldiertable
-from .models import *
 
 
 # Create your views here.
@@ -15,6 +12,7 @@ def index(request):
         form = SoldierForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
+            form.save()
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
@@ -25,11 +23,3 @@ def index(request):
         form = SoldierForm()
 
     return render(request, 'base.html', {'form': form})
-
-
-def soldierinfo(request):
-    table = Soldiertable(Soldierdata.objects.all())
-    model = Soldierdata
-    table_class = Soldiertable
-    RequestConfig(request).configure(table)
-    return render(request, 'base.html', {'table1': table})
