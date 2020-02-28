@@ -9,6 +9,18 @@ class SoldierForm(ModelForm):
         model = Soldierdata
         fields = '__all__'
 
+    def __init__(self, *args, **kwargs):
+        super(SoldierForm, self).__init__(*args, **kwargs)
+        self.fields['DODID'].widget.attrs[
+            'class'] = 'form-control'
+        self.fields['last_name'].widget.attrs[
+            'class'] = 'form-control'
+        self.fields['MOS'].widget.attrs[
+            'class'] = 'form-control'
+        self.fields['Battery'].widget.attrs[
+            'class'] = 'form-control'
+        self.fields['first_name'].widget.attrs[
+            'class'] = 'form-control'
 
 class IccTableOneForm(ModelForm):
     class Meta:

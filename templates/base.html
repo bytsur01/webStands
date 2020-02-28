@@ -88,29 +88,20 @@
            {% csrf_token %}
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="last_name">Last Name</label>
-                    <input class="form-control" type="text" name="last_name" id="last_name" value="{{ last_name }}" required="">
-                    <label for="MOS">MOS</label>
-                    <select class="form-control"  name="MOS" id="MOS" required="" >
-                                {% for x ,y in form.fields.MOS.choices %}
-                    <option value="{{ MOS }}"{% if form.fields.Rank.value == x %} selected{% endif %}>{{ y }}</option>
-                                         {% endfor %}
-                    </select>
+                    <label for="{{ form.DODID.id_for_label }}">DoD ID #</label>
+                                {{ form.DODID }}
+                    <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+                                {{ form.last_name }}
+                    <label for='{{ form.MOS.id_for_label }}'>MOS</label>
+                                {{ form.MOS }}
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="first_name">First Name</label>
-                    <input class="form-control" type="text" name="first_name" id="first_name" value="{{ first_name }}" required="">
-                    <label for="Position">Duty Position</label>
-                    <select class="form-control"  name="Position" id="MOS" required="" >
-                                {% for x ,y in form.fields.Position.choices %}
-                    <option value="{{ Position }}"{% if form.fields.Position.value == x %} selected{% endif %}>{{ y }}</option>
-                                         {% endfor %}
-                    </select>
-                    <button type="submit" class="btn-lg btn-dark space" value="submit">Submit</button>
-                    <button type="reset" class="btn-lg btn-secondary spcae" value="reset">Reset</button>
-
+                    <label for="{{ form.Unit.id_for_label }}">Unit</label>
+                                {{ form.Battery }}
+                    <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                                {{ form.first_name }}
                 </div>
             </div>
             <div class="col-md-4">
