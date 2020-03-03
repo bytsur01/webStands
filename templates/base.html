@@ -1,3 +1,4 @@
+{# tutorial/templates/tutorial/people.html #}
 {% load static %}
 <!DOCTYPE html>
 <html lang="eng">
@@ -14,6 +15,7 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -82,50 +84,48 @@
 
  <div class="container-fluid">
     <div class="row">
-    <div class="col-md-12">
-    <h1>New Soldier Entry</h1>
-        <form method="post" class="row form">
-           {% csrf_token %}
+        <h1>New Soldier Entry</h1>
+        <form method='POST' action="." class="form row" novalidate>
+            {% csrf_token %}
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="{{ form.DODID.id_for_label }}">DoD ID #</label>
-                                {{ form.DODID }}
-                    <label for="{{ form.last_name.id_for_label }}">Last Name</label>
-                                {{ form.last_name }}
-                    <label for='{{ form.MOS.id_for_label }}'>MOS</label>
-                                {{ form.MOS }}
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="{{ form.Unit.id_for_label }}">Unit</label>
-                                {{ form.Battery }}
-                    <label for="{{ form.first_name.id_for_label }}">First Name</label>
-                                {{ form.first_name }}
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="rank">Rank</label>
-                    <select class="form-control"  name="rank" id="rank" required="" >
-                                {% for PVT,CW3 in form.fields.Rank.choices %}
-                    <option value="{{ Rank }}"{% if form.fields.Rank.value == PVT %} selected{% endif %}>{{ PVT }}</option>
-                                         {% endfor %}
-                    </select>
-                    <label for="platoon">Platoon</label>
-                    <select class="form-control"  name="Platoon" id="platoon" required="" >
-                                {% for x ,y in form.fields.Platoon.choices %}
-                    <option value="{{ Platoon }}"{% if form.fields.Platoon.value == x %} selected{% endif %}>{{ y }}</option>
-                                         {% endfor %}
-                    </select>
 
+                    <label for="{{ form.DODID.id_for_label }}">DoD ID #</label>
+                    {{ form.DODID }}
+                    <label for="{{ form.Rank.id_for_label }}">Rank</label>
+                    {{ form.Rank }}
+                    <label for='{{ form.Platoon.id_for_label }}'>Platoon</label>
+                    {{ form.Platoon }}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="{{ form.MOS.id_for_label }}">MOS</label>
+                    {{ form.MOS }}
+                    <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+                    {{ form.last_name }}
+                    <label for="{{ form.Battery.id_for_label }}">Battery</label>
+                    {{ form.Battery }}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="{{ form.Position.id_for_label }}">Position</label>
+                    {{ form.Position }}
+                    <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                    {{ form.first_name }}
+                    <label for="{{ form.Battalion.id_for_label}}">Battalion</label>
+                    {{ form.Battalion}}
+
+                    <button class="btn btn-primary" name="sd" type="submit" value="Submit">Submit</button>
+                    <Button class="btn btn-primary" name="sd" type="reset" value="Reset">RESET</Button>
                 </div>
             </div>
         </form>
     </div>
+
 </div>
-</div>
-<!-- header area w/cards --->
+
   <div class="container-fluid alpha">
       <h1>Training Input</h1>
   <div class="row">

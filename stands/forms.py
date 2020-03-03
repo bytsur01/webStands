@@ -21,6 +21,20 @@ class SoldierForm(ModelForm):
             'class'] = 'form-control'
         self.fields['first_name'].widget.attrs[
             'class'] = 'form-control'
+        self.fields['Battery'].widget.attrs[
+            'class'] = 'form-control'
+        self.fields['Rank'].widget.attrs[
+            'class'] = 'form-control'
+        self.fields['Platoon'].widget.attrs[
+            'class'] = 'form-control'
+        self.fields['Battalion'].widget.attrs[
+            'class'] = 'form-control'
+        self.fields['Position'].widget.attrs[
+            'class'] = 'form-control'
+
+
+
+
 
 class IccTableOneForm(ModelForm):
     class Meta:

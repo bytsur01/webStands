@@ -75,15 +75,14 @@ class Soldierdata(models.Model):
     MOS = models.CharField(max_length=155, choices=mos)
     Position = models.CharField(max_length=155, choices=position, blank=True)
     Platoon = models.CharField(max_length=155, choices=platoon, blank=True)
-    Battery = models.CharField(max_length=155, choices=battery, default='')
-    Battalion = models.CharField(max_length=155, choices=unit(), default='')
-    Brigade = models.CharField(max_length=155, choices=brigade, default='')
-    AAMDC = models.CharField(max_length=155, choices=aamdc, default='')
+    Battery = models.CharField(max_length=155, choices=battery, blank=True)
+    Battalion = models.CharField(max_length=155, choices=unit(), blank=True)
+
+    # Brigade = models.CharField(max_length=155, choices=brigade, default='')
+    # AAMDC = models.CharField(max_length=155, choices=aamdc, default='')
 
     def __str__(self):
         return self.last_name
-
-
 
 
 class IccTableOne(models.Model):
