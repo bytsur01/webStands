@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <form method='POST' action="." class="form-row">
+        {% csrf_token %}
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="{{ form.DODID.id_for_label }}">DoD ID #</label>
+                {{ form.DODID }}
+                <label for="{{ form.Rank.id_for_label }}">Rank</label>
+                {{ form.Rank }}
+                <label for='{{ form.Platoon.id_for_label }}'>Platoon</label>
+                {{ form.Platoon }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="{{ form.MOS.id_for_label }}">MOS</label>
+                {{ form.MOS }}
+                <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+                {{ form.last_name }}
+                <label for="{{ form.Battery.id_for_label }}">Battery</label>
+                {{ form.Battery }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="{{ form.Position.id_for_label }}">Position</label>
+                {{ form.Position }}
+                <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                {{ form.first_name }}
+                <label for="{{ form.Battalion.id_for_label}}">Battalion</label>
+                {{ form.Battalion}}
+                <button class="btn btn-primary" name="sd" type="submit" value="Submit">Submit</button>
+                <Button class="btn btn-primary" name="sd" type="reset" value="Reset">RESET</Button>
+            </div>
+        </div>
+    </form>
+
+<div class="container-fluid alpha">
+        <h1>Training Input</h1>
+        <div class="row">
+            <div class="col-sm">
+                <div class="card card-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">ICC</h5>
+                    </div>
+                    <ul class="list-group list-group-flush bob">
+                        <li class="list-group-item">Table I</li>
+                        <li class="list-group-item">Table II</li>
+                        <li class="list-group-item">Table III</li>
+                        <li class="list-group-item">Table IV</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card card-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">CRG</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Table I</li>
+                        <li class="list-group-item">Table II</li>
+                        <li class="list-group-item">Table III</li>
+                        <li class="list-group-item">Table IV</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card card-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">TCS</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Table I</li>
+                        <li class="list-group-item">Table II</li>
+                        <li class="list-group-item">Table III</li>
+                        <li class="list-group-item rounded">Table IV</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card card-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">AMG</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Table I</li>
+                        <li class="list-group-item">Table II</li>
+                        <li class="list-group-item">Table III</li>
+                        <li class="list-group-item">Table IV</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

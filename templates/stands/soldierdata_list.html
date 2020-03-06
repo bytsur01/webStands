@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>Soldiers</h2>
+    <ul>
+        {% for Soldierdata in object_list %}
+            <li>{{ Soldierdata.DODID }}</li>
+            <li>{{ Soldierdata.first_name }}</li>
+            <li>{{ Soldierdata.last_name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

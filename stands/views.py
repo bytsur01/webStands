@@ -25,6 +25,8 @@ def index(request):
     else:
         form = SoldierForm()
 
-    return render(request, 'base.html', {'form': form})
+    return render(request, 'index.html', {'form': form})
 
 
+class SoldierList(ListView):
+    model = Soldierdata
