@@ -5,6 +5,7 @@
     <h2>Soldiers</h2>
     <ul>
         {% for Soldierdata in object_list %}
+            {% include 'Soldier' %}
             <li>{{ Soldierdata.DODID }}</li>
             <li>{{ Soldierdata.first_name }}</li>
             <li>{{ Soldierdata.last_name }}</li>

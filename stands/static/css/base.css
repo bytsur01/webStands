@@ -16,6 +16,12 @@ label {
   text-align: center;
 }
 
+iframe {
+  border: none;
+  width: 100%;
+  height: auto;
+}
+
 .boss{
   text-align: center;
   padding-top: 50px;
@@ -96,4 +102,8 @@ label {
 
 .space {
   text-align: center;
+}
+
+.tim {
+  align-items: center;
 }

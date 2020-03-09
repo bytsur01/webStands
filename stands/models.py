@@ -66,6 +66,8 @@ position = [
     ('JWARN', 'JWARN Operator'),
 ]
 
+BOOL_CHOICES = ((True, 'Yes'), (False, 'No'))
+
 
 class Soldierdata(models.Model):
     DODID = models.IntegerField(primary_key=True)
@@ -88,7 +90,7 @@ class Soldierdata(models.Model):
 class IccTableOne(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_1_tasks = models.CharField(max_length=155, choices=icc_t1(), blank=True)
-    task_complete = models.BooleanField(null=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, null=False)
 
@@ -96,7 +98,7 @@ class IccTableOne(models.Model):
 class IccTableTwo(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_2_tasks = models.CharField(max_length=155, choices=icc_t2(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
@@ -104,21 +106,21 @@ class IccTableTwo(models.Model):
 class IccTableThree(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_3_tasks = models.CharField(max_length=155, choices=icc_t3(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     trainer = models.CharField(max_length=255, blank=True)
 
 
 class IccTableFour(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_4_tasks = models.CharField(max_length=255, choices=icc_t4(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES)
     trainer = models.CharField(max_length=255, blank=True)
 
 
 class CrgTableOne(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_1_tasks = models.CharField(max_length=155, choices=crg_t1(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 

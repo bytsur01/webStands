@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block content %}
+    <div class="container">
+    <h2>Soldier Information</h2>
+    </div>
     <form method='POST' action="." class="form-row">
         {% csrf_token %}
         <div class="col-md-4">
@@ -32,38 +35,54 @@
                 {{ form.first_name }}
                 <label for="{{ form.Battalion.id_for_label}}">Battalion</label>
                 {{ form.Battalion}}
+
+            </div>
+        </div>
+        <div class="col-md d-flex justify-content-center">
+            <div class="form-group">
                 <button class="btn btn-primary" name="sd" type="submit" value="Submit">Submit</button>
                 <Button class="btn btn-primary" name="sd" type="reset" value="Reset">RESET</Button>
             </div>
         </div>
     </form>
 
-<div class="container-fluid alpha">
-        <h1>Training Input</h1>
+    <div class="accordion" id="accordionTraining">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          ICC Training Management Menu
+        </button>
+      </h2>
+    </div>
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionTraining">
+      <div class="card-body">
+          <div class="container-fluid alpha">
         <div class="row">
             <div class="col-sm">
                 <div class="card card-shadow">
                     <div class="card-body">
-                        <h5 class="card-title">ICC</h5>
+                        <h5 class="card-title">ICC Table I-IV</h5>
                     </div>
                     <ul class="list-group list-group-flush bob">
                         <li class="list-group-item">Table I</li>
                         <li class="list-group-item">Table II</li>
                         <li class="list-group-item">Table III</li>
                         <li class="list-group-item">Table IV</li>
+
                     </ul>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="card card-shadow">
                     <div class="card-body">
-                        <h5 class="card-title">CRG</h5>
+                        <h5 class="card-title">ICC Table V-VIII</h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Table I</li>
-                        <li class="list-group-item">Table II</li>
-                        <li class="list-group-item">Table III</li>
-                        <li class="list-group-item">Table IV</li>
+                        <li class="list-group-item">Table V</li>
+                        <li class="list-group-item">Table V-I</li>
+                        <li class="list-group-item">Table V-II</li>
+                        <li class="list-group-item">Table V-III</li>
                     </ul>
                 </div>
             </div>
@@ -71,29 +90,173 @@
             <div class="col-sm">
                 <div class="card card-shadow">
                     <div class="card-body">
-                        <h5 class="card-title">TCS</h5>
+                        <h5 class="card-title">ICC Table X-XII</h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Table I</li>
-                        <li class="list-group-item">Table II</li>
-                        <li class="list-group-item">Table III</li>
-                        <li class="list-group-item rounded">Table IV</li>
+                        <li class="list-group-item">Table IX</li>
+                        <li class="list-group-item">Table X</li>
+                        <li class="list-group-item">Table XI</li>
+                        <li class="list-group-item rounded">Table XII</li>
                     </ul>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="card card-shadow">
                     <div class="card-body">
-                        <h5 class="card-title">AMG</h5>
+                        <h5 class="card-title">Evaluation Sheets</h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Table I</li>
-                        <li class="list-group-item">Table II</li>
-                        <li class="list-group-item">Table III</li>
-                        <li class="list-group-item">Table IV</li>
+                        <li class="list-group-item">VII</li>
+                        <li class="list-group-item">VIII</li>
+                        <li class="list-group-item">MRE</li>
+                        <li class="list-group-item">XII</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          CRG Training Management
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionTraining">
+      <div class="card-body">
+          <div class="container-fluid alpha">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card card-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">CRG Table I-IV</h5>
+                    </div>
+                    <ul class="list-group list-group-flush bob">
+                        <li class="list-group-item">Table I</li>
+                        <li class="list-group-item">Table II</li>
+                        <li class="list-group-item">Table III</li>
+                        <li class="list-group-item">Table IV</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card card-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">CRG Table V-VIII</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Table V</li>
+                        <li class="list-group-item">Table VI</li>
+                        <li class="list-group-item">Table VII</li>
+                        <li class="list-group-item">Table VIII</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card card-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">CRG Table IX-XII</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Table IX</li>
+                        <li class="list-group-item">Table X</li>
+                        <li class="list-group-item">Table XI</li>
+                        <li class="list-group-item rounded">Table XII</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card card-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Evaluation Sheets</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">VII</li>
+                        <li class="list-group-item">VIII</li>
+                        <li class="list-group-item">MRE</li>
+                        <li class="list-group-item">XII</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          TCS Training Management
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionTraining">
+      <div class="card-body">
+         <div class="container-fluid alpha">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card card-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">TCS Table I-IV</h5>
+                    </div>
+                    <ul class="list-group list-group-flush bob">
+                        <li class="list-group-item">Table I</li>
+                        <li class="list-group-item">Table II</li>
+                        <li class="list-group-item">Table III</li>
+                        <li class="list-group-item">Table IV</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card card-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">TCS Table V-VIII</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Table V</li>
+                        <li class="list-group-item">Table VI</li>
+                        <li class="list-group-item">Table VII</li>
+                        <li class="list-group-item">Table VIII</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card card-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">TCS Table IX-XII</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Table IX</li>
+                        <li class="list-group-item">Table X</li>
+                        <li class="list-group-item">Table XI</li>
+                        <li class="list-group-item rounded">Table XII</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card card-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Evaluation Forms</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">VII</li>
+                        <li class="list-group-item">VII</li>
+                        <li class="list-group-item">MRE</li>
+                        <li class="list-group-item">XII</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

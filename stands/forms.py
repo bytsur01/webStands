@@ -33,7 +33,23 @@ class SoldierForm(ModelForm):
             'class'] = 'form-control'
 
 
+class CrgTableOneForm(ModelForm):
+    class Meta:
+        model = CrgTableOne
+        fields = '__all__'
 
+    def __init__(self, *args, **kwargs):
+        super(CrgTableOneForm, self).__init__(*args, **kwargs)
+        self.fields['soldier'].widget.attrs[
+            'class'] = 'form-control'
+        self.fields['t_1_tasks'].widget.attrs[
+            'class'] = 'form-control'
+        self.fields['task_complete'].widget.attrs[
+            'class'] = 'form-control'
+        self.fields['date_completed'].widget.attrs[
+            'class'] = 'form-control'
+        self.fields['trainer'].widget.attrs[
+            'class'] = 'form-control'
 
 
 class IccTableOneForm(ModelForm):

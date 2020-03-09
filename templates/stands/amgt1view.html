@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="eng">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patriot Stands</title>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+
+    <!--local files created by SFC Chad Phillips --->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+
+    <!--font awesome ------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<form method='POST' action="." class="form-row">
+    {% csrf_token %}
+    <div class="col-md">
+        <div class="form-group">
+            <label for="{{ form.soldier.id_for_label }}">Select Soldier</label>
+            {{ form.soldier }}
+            <label for="{{ form.t_1_tasks.id_for_label }}">Task Trained</label>
+            {{ form.t_1_tasks }}
+            <label for='{{ form.date_completed.id_for_label }}'>Task Completed</label>
+            {{ form.date_completed }}
+            <label for='{{ form.trainer.id_for_label }}'>Trainer</label>
+            {{ form.trainer }}
+        </div>
+    </div>
+    <div class="from-group">
+        <button class="btn btn-primary" name="sd" type="submit" value="Submit">Submit</button>
+        <Button class="btn btn-primary" name="sd" type="reset" value="Reset">Reset</Button>
+    </div>
+</form>
