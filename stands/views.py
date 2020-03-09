@@ -1,10 +1,10 @@
-from django.shortcuts import render,  redirect
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import SoldierForm, CrgTableOneForm
-from django.views.generic import ListView, FormView
+from django.views.generic.edit import FormView
+from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from .models import Soldierdata, CrgTableOne
-from django.views.decorators.clickjacking import xframe_options_exempt
 
 
 # Create your views here.
@@ -31,16 +31,15 @@ def index(request):
     return render(request, 'index.html', {'form': form})
 
 
-
 class Amgt1Create(FormView):
     form_class = CrgTableOneForm
     template_name = 'stands/amgt1view.html'
     fields = '__all__'
-
+    success_url = '/index/'
 
     def form_valid(self, form):
-        form.instance.created_by = self.request.user
-        return super(Amgt1Create, self).form_valid(form)
+        form.clean()
+        return super().form_valid(form)
 
 
 class SoldierList(ListView):

@@ -36,8 +36,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-
-<form method='POST' action="." class="form-row">
+<div class="container">
+    <h2>AMG Table I</h2>
+<form method='POST' class="form-row">
     {% csrf_token %}
     <div class="col-md">
         <div class="form-group">
@@ -50,9 +51,9 @@
             <label for='{{ form.trainer.id_for_label }}'>Trainer</label>
             {{ form.trainer }}
         </div>
-    </div>
     <div class="from-group">
-        <button class="btn btn-primary" name="sd" type="submit" value="Submit">Submit</button>
-        <Button class="btn btn-primary" name="sd" type="reset" value="Reset">Reset</Button>
+        <button class="btn btn-primary"  type="submit" value="Submit">Submit</button>
+        <Button class="btn btn-primary"  type="reset" value="Reset">Reset</Button>
     </div>
 </form>
+</div>
