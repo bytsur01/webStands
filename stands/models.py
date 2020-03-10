@@ -1,5 +1,6 @@
 from django.db import models
 from .selectors import *
+from datetime import datetime
 
 # Create your models here.
 
@@ -66,6 +67,8 @@ position = [
     ('JWARN', 'JWARN Operator'),
 ]
 
+BOOL_CHOICES = ((True, 'Yes'), (False, 'No'))
+
 
 class Soldierdata(models.Model):
     DODID = models.IntegerField(primary_key=True)
@@ -75,281 +78,377 @@ class Soldierdata(models.Model):
     MOS = models.CharField(max_length=155, choices=mos)
     Position = models.CharField(max_length=155, choices=position, blank=True)
     Platoon = models.CharField(max_length=155, choices=platoon, blank=True)
-    Battery = models.CharField(max_length=155, choices=battery, default='')
-    Battalion = models.CharField(max_length=155, choices=unit(), default='')
-    #Brigade = models.CharField(max_length=155, choices=brigade, default='')
-    #AAMDC = models.CharField(max_length=155, choices=aamdc, default='')
+    Battery = models.CharField(max_length=155, choices=battery, blank=True)
+    Battalion = models.CharField(max_length=155, choices=unit(), blank=True)
+
+    # Brigade = models.CharField(max_length=155, choices=brigade, default='')
+    # AAMDC = models.CharField(max_length=155, choices=aamdc, default='')
 
     def __str__(self):
-        return self.last_name
+        return self.Rank+' '+self.last_name+', '+self.first_name
 
 
 class IccTableOne(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_1_tasks = models.CharField(max_length=155, choices=icc_t1(), blank=True)
-    task_complete = models.BooleanField(null=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
-    trainer = models.CharField(max_length=255, null=False)
-
-    def __str__(self):
-        return self.soldier+' '+self.trainer
+    trainer = models.CharField(max_length=255, blank=False)
 
 
 class IccTableTwo(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_2_tasks = models.CharField(max_length=155, choices=icc_t2(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
-
-    def __str__(self):
-        return self.soldier+' '+self.trainer
 
 
 class IccTableThree(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_3_tasks = models.CharField(max_length=155, choices=icc_t3(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
-    trainer = models.CharField(max_length=255, blank=True)
-
-    def __str__(self):
-        return self.soldier+' '+self.trainer
+    trainer = models.CharField(max_length=255, blank=False)
 
 
 class IccTableFour(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_4_tasks = models.CharField(max_length=255, choices=icc_t4(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
-    trainer = models.CharField(max_length=255, blank=True)
-
-    def __str__(self):
-        return self.soldier+' '+self.trainer
+    trainer = models.CharField(max_length=255, blank=False)
 
 
 class IccTableFive(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_5_tasks = models.CharField(max_length=255, choices=icc_t5(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
-    trainer = models.CharField(max_length=255, blank=True)
-
-    def __str__(self):
-        return self.soldier+' '+self.trainer
+    trainer = models.CharField(max_length=255, blank=False)
 
 
 class IccTableSix(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_6_tasks = models.CharField(max_length=255, choices=icc_t6(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
-    trainer = models.CharField(max_length=255, blank=True)
-
-    def __str__(self):
-        return self.soldier+' '+self.trainer
+    trainer = models.CharField(max_length=255, blank=False)
 
 
 class IccTableSeven(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_7_tasks = models.CharField(max_length=255, choices=icc_t7(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
-    trainer = models.CharField(max_length=255, blank=True)
-
-    def __str__(self):
-        return self.soldier+' '+self.trainer
+    trainer = models.CharField(max_length=255, blank=False)
 
 
 class IccTableEight(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_8_tasks = models.CharField(max_length=255, choices=icc_t8(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
-    trainer = models.CharField(max_length=255, blank=True)
-
-    def __str__(self):
-        return self.soldier+' '+self.trainer
+    trainer = models.CharField(max_length=255, blank=False)
 
 
 class IccTableNine(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_9_tasks = models.CharField(max_length=255, choices=icc_t9(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
-    trainer = models.CharField(max_length=255, blank=True)
-
-    def __str__(self):
-        return self.soldier+' '+self.trainer
+    trainer = models.CharField(max_length=255, blank=False)
 
 
 class IccTableTen(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_10_tasks = models.CharField(max_length=255, choices=icc_t10(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
-    trainer = models.CharField(max_length=255, blank=True)
-
-    def __str__(self):
-        return self.soldier + ' ' + self.trainer
+    trainer = models.CharField(max_length=255, blank=False)
 
 
 class IccTableEleven(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_11_tasks = models.CharField(max_length=255, choices=icc_t11(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
-    trainer = models.CharField(max_length=255, blank=True)
-
-    def __str__(self):
-        return self.soldier + ' ' + self.trainer
+    trainer = models.CharField(max_length=255, blank=False)
 
 
 class IccTableTwelve(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
     t_12_tasks = models.CharField(max_length=255, choices=icc_t12(), blank=True)
-    task_complete = models.BooleanField(default=True)
-    date_completed = models.DateField(null=True)
-    trainer = models.CharField(max_length=255, blank=True)
-
-    def __str__(self):
-        return self.soldier + ' ' + self.trainer
-
-
-class CrgTableOne(models.Model):
-    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_1_tasks = models.CharField(max_length=155, choices=crg_t1(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
+class TcsTableOne(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_1_tasks = models.CharField(max_length=255, choices=tcs_t1(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class TcsTableTwo(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_2_tasks = models.CharField(max_length=255, choices=tcs_t2(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class TcsTableThree(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_3_tasks = models.CharField(max_length=255, choices=tcs_t3(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class TcsTableFour(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_4_tasks = models.CharField(max_length=255, choices=tcs_t4(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class TcsTableFive(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_5_tasks = models.CharField(max_length=255, choices=tcs_t5(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class TcsTableSix(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_6_tasks = models.CharField(max_length=255, choices=tcs_t6(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class TcsTableSeven(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_7_tasks = models.CharField(max_length=255, choices=tcs_t7(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class TcsTableEight(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_8_tasks = models.CharField(max_length=255, choices=tcs_t8(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class TcsTableNine(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_9_tasks = models.CharField(max_length=255, choices=tcs_t9(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class TcsTableTen(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_10_tasks = models.CharField(max_length=255, choices=tcs_t10(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class TcsTableEleven(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_11_tasks = models.CharField(max_length=255, choices=tcs_t11(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class TcsTableTwelve(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_12_tasks = models.CharField(max_length=255, choices=tcs_t12(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class CrgTableOne(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_1_tasks = models.CharField(max_length=255, choices=crg_t1(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+    def __str__(self):
+        return f'{self.soldier} {self.t_1_tasks}, {self.date_completed}'
+
+
 class CrgTableTwo(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_2_tasks = models.CharField(max_length=155, choices=crg_t2(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_2_tasks = models.CharField(max_length=255, choices=crg_t2(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class CrgTableThree(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_3_tasks = models.CharField(max_length=155, choices=crg_t3(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_3_tasks = models.CharField(max_length=255, choices=crg_t3(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class CrgTableFour(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_4_tasks = models.CharField(max_length=155, choices=crg_t4(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_4_tasks = models.CharField(max_length=255, choices=crg_t4(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class CrgTableFive(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_5_tasks = models.CharField(max_length=155, choices=crg_t5(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_5_tasks = models.CharField(max_length=255, choices=crg_t5(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class CrgTableSix(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_6_tasks = models.CharField(max_length=155, choices=crg_t6(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_6_tasks = models.CharField(max_length=255, choices=crg_t6(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class CrgTableSeven(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_7_tasks = models.CharField(max_length=155, choices=crg_t7(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_7_tasks = models.CharField(max_length=255, choices=crg_t7(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class CrgTableEight(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_8_tasks = models.CharField(max_length=155, choices=crg_t8(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_8_tasks = models.CharField(max_length=255, choices=crg_t8(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class CrgTableNine(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_9_tasks = models.CharField(max_length=255, choices=crg_t9(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class CrgTableTen(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_10_tasks = models.CharField(max_length=255, choices=crg_t10(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class CrgTableEleven(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_11_tasks = models.CharField(max_length=255, choices=crg_t11(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
+    date_completed = models.DateField(null=True)
+    trainer = models.CharField(max_length=255, blank=False)
+
+
+class CrgTableTwelve(models.Model):
+    soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
+    t_12_tasks = models.CharField(max_length=255, choices=crg_t12(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class AmgTableOne(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_1_tasks = models.CharField(max_length=155, choices=amg_t1(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_1_tasks = models.CharField(max_length=255, choices=amg_t1(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class AmgTableTwo(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_2_tasks = models.CharField(max_length=155, choices=amg_t2(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_2_tasks = models.CharField(max_length=255, choices=amg_t2(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class AmgTableThree(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_3_tasks = models.CharField(max_length=155, choices=amg_t3(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_3_tasks = models.CharField(max_length=255, choices=amg_t3(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class AmgTableFour(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_4_tasks = models.CharField(max_length=155, choices=amg_t4(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_4_tasks = models.CharField(max_length=255, choices=amg_t4(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class AmgTableFive(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_5_tasks = models.CharField(max_length=155, choices=amg_t5(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_5_tasks = models.CharField(max_length=255, choices=amg_t5(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class AmgTableSix(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_6_tasks = models.CharField(max_length=155, choices=amg_t6(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_6_tasks = models.CharField(max_length=255, choices=amg_t6(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class AmgTableSeven(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_7_tasks = models.CharField(max_length=155, choices=amg_t7(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_7_tasks = models.CharField(max_length=255, choices=amg_t7(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
 class AmgTableEight(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_8_tasks = models.CharField(max_length=155, choices=amg_t8(), blank=True)
-    task_complete = models.BooleanField(default=True)
+    t_8_tasks = models.CharField(max_length=255, choices=amg_t8(), blank=True)
+    task_complete = models.BooleanField(choices=BOOL_CHOICES, null=True)
     date_completed = models.DateField(null=True)
     trainer = models.CharField(max_length=255, blank=False)
 
 
-class Cso(models.Model):
+class Icc(models.Model):
     soldier = models.ForeignKey(Soldierdata, on_delete=models.CASCADE)
-    t_1_tasks = models.CharField(max_length=155, choices=crg_t1(), blank=True)
-    t_2_tasks = models.CharField(max_length=155, choices=crg_t2(), blank=True)
-    t_3_tasks = models.CharField(max_length=155, choices=crg_t3(), blank=True)
-    t_4_tasks = models.CharField(max_length=155, choices=crg_t4(), blank=True)
+    t_1_tasks = models.CharField(max_length=155, choices=icc_t1(), null=True)
+    t_2_tasks = models.CharField(max_length=155, choices=icc_t2(), null=True)
+    t_3_tasks = models.CharField(max_length=155, choices=icc_t3(), null=True)
+    t_4_tasks = models.CharField(max_length=155, choices=icc_t4(), null=True)
     task_complete = models.BooleanField(null=True)
     date_completed = models.DateField(null=True)
 
